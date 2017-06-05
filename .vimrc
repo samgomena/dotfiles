@@ -54,3 +54,6 @@ set grepprg=git\ grp\ -n
 "nnoremap <C-n> :call NumberToggle()<cr>
 "so /Users/Sgomena/vimrc.vim
 set autochdir
+
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
