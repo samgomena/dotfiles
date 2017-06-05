@@ -32,3 +32,6 @@
 [submodule "bundle/auto-pairs"]
 	path = bundle/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "bundle/tComment"]
+	path = bundle/tComment
+	url = https://github.com/tomtom/tcomment_vim.git
