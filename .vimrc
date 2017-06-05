@@ -1,5 +1,7 @@
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 "comment line
-"another line
 "colorscheme morning
 colorscheme badwolf
 syntax enable
@@ -55,5 +57,3 @@ set grepprg=git\ grp\ -n
 "so /Users/Sgomena/vimrc.vim
 set autochdir
 
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
