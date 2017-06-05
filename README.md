@@ -1,7 +1,6 @@
 ### Installation:
 
-    git clone git://github.com/samgomena/dotfiles.git ~/.vim
-
+    git clone git://github.com/samgomena/dotfiles.git
 ### Create symlinks:
     
     ln -s ~/.vim/vimrc ~/.vimrc
