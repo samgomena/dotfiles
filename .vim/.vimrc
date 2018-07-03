@@ -1,5 +1,3 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 
 "comment line
 "colorscheme morning
@@ -28,7 +26,7 @@ set splitright
 set shiftwidth=2
 set noswapfile      " prevent swap files (recoverable changes)
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/dotfiles/.vim/plugged')
 
 "Plugins
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
