@@ -1,14 +1,12 @@
 ### Installation:
 
     git clone git://github.com/samgomena/dotfiles.git
-### Create symlinks:
-    
-    ln -s ~/.vim/vimrc ~/.vimrc
-    ln -s ~/.vim/gvimrc ~/.gvimrc
-    
-### Switch to the `~/.vim` directory, and fetch submodules:
-    
-    cd ~/.vim
-    git submodule init
-    git submodule update
-    
+
+### Setup:
+
+    chmod +x setup.sh
+    ./setup.sh  
+
+##### Or for the bold:
+
+    git clone git://github.com/samgomena/dotfiles.git && chmod +x setup.sh && ./setup.sh
