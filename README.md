@@ -12,4 +12,4 @@
     git clone git://github.com/samgomena/dotfiles.git && chmod +x setup.sh && ./setup.sh
 
 
-Note: This only installs a vimrc, it does *not* update/setup/install .bashrc or .bash_profile.
+Note: This only installs a vimrc, it does **not** touch .bashrc or .bash_profile.
