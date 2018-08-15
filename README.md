@@ -1,6 +1,6 @@
 ### Installation:
 
-    git clone git://github.com/samgomena/dotfiles.git
+    git clone --branch master --single-branch git://github.com/samgomena/dotfiles.git
 
 ### Setup:
 
@@ -9,7 +9,7 @@
 
 ##### _Or for the bold_:
 
-    git clone git://github.com/samgomena/dotfiles.git && chmod +x setup.sh && ./setup.sh
+    git clone --branch master --single-branch git://github.com/samgomena/dotfiles.git && chmod u+x setup.sh && ./setup.sh
 
 
-Note: This only installs a vimrc, it does **not** touch .bashrc or .bash_profile.
+Note: This only installs .vimrc, it does **not** touch .bashrc or .bash_profile.
