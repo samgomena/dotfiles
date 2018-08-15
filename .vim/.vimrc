@@ -29,7 +29,6 @@ set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set ruler
 set expandtab       " tabs are spaces
-set cursorline      " highlight current line
 set wildmenu        " visual autocomplete for command menu
 set splitbelow
 set splitright
@@ -45,7 +44,7 @@ Plug 'tpope/vim-rails'
 Plug 'vim-scripts/tComment'
 Plug 'Valloric/YouCompleteMe'
 Plug 'mustache/vim-mustache-handlebars'
-" Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Lokaltog/vim-easymotion'
