@@ -4,7 +4,7 @@
 
 ### Setup:
 
-    chmod +x setup.sh
+    chmod +x setup_vim.sh
     ./setup.sh  
 
 ##### _Or for the bold_:
