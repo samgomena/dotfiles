@@ -12,4 +12,4 @@
     git clone --branch master --single-branch git://github.com/samgomena/dotfiles.git && chmod u+x setup.sh && ./setup.sh
 
 
-Note: This only installs .vimrc, it does **not** touch .bashrc or .bash_profile.
+Note: This currently only installs .vimrc, it does **not** touch .bashrc or .bash_profile.
