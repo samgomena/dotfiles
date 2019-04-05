@@ -13,6 +13,13 @@ autocmd BufReadPost *
 colorscheme badwolf
 syntax enable
 syntax on
+" You should use :x instead!
+" Or you could use per https://coderwall.com/p/nckasg/map-w-to-w-in-vim
+" nnoremap ; ;
+command WQ wq
+command Wq :echoe "you should use :x"wq
+command W w
+command Q q
 nnoremap <Left> :echoe "Arrow disabled: use h"<CR>
 nnoremap <Right> :echoe "Arrow disabled: use l"<CR>
 nnoremap <Up> :echoe "Arrow disabled: use k"<CR>
