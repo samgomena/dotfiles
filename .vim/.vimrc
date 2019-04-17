@@ -47,13 +47,13 @@ call plug#begin('~/.vim/plugged')
 
 "Plugins
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'tpope/vim-rails'
 Plug 'vim-scripts/tComment'
-Plug 'Valloric/YouCompleteMe'
-Plug 'mustache/vim-mustache-handlebars'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'jiangmiao/auto-pairs'
+Plug 'yggdroot/indentline'
+" Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Lokaltog/vim-easymotion'
 
 call plug#end()
@@ -86,11 +86,8 @@ if has("persistent_undo")
     set undofile
 endif
 
-let g:indent_guides_guide_size = 1  " vim-indent-guides
-let g:indnet_guides_auto_colors = 1  
-let g:indent_guides_start_level = 2
-let g:indent_guides_color_change_percent = 2
-let g:indent_guides_enable_on_vim_startup = 1
+" indentline settings
+let g:indentLine_char = '|'
 
 "function! NumberToggle()
 "  if(&relativenumber == 1)
