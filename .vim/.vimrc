@@ -63,7 +63,7 @@ call plug#end()
 " let mapleader = ","
 " map <Leader>n :NERDTreeToggle<CR>
 
-map <C-n> :NERDTreeToggle<CR>
+map <C-f> :NERDTreeToggle<CR>
 
 set grepprg=git\ grp\ -n
 
