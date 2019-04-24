@@ -42,6 +42,7 @@ set splitright
 set shiftwidth=2
 set noswapfile      " prevent swap files (recoverable changes)
 set laststatus=2    " lightline show status bar
+set encoding=utf-8  " YCM requires utf-8 (and probably other stuff too)"
 
 call plug#begin('~/.vim/plugged')
 
