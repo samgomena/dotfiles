@@ -58,8 +58,11 @@ Plug 'Lokaltog/vim-easymotion'
 
 call plug#end()
 
-let mapleader = ","
-map <Leader>n :NERDTreeToggle<CR>
+" Not sure how these got here; gonna leave 'em for now
+" let mapleader = ","
+" map <Leader>n :NERDTreeToggle<CR>
+
+map <C-n> :NERDTreeToggle<CR>
 
 set grepprg=git\ grp\ -n
 
