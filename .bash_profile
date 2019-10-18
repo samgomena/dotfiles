@@ -31,3 +31,5 @@ alias reload='source ~/.bash_profile && source ~/.bashrc'
 
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 
+function rename () { for i in $1*; do mv "$i" "${i/$1/$2}"; done; }
+
