@@ -93,9 +93,8 @@ alias gs='git status'
 # General aliasses
 alias repos='cd ~/Documents/repos'
 alias reload='source ~/.bash_profile && source ~/.bashrc'
-alias vl='export VAULT_TOKEN=$(vault login -method=ldap -token-only username=sgomena)'
 
 function cdl () { cd "$@" && ls; }
-function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 function rename () { for i in $1*; do mv "$i" "${i/$1/$2}"; done; }
 
