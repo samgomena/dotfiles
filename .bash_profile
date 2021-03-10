@@ -65,8 +65,10 @@ if [ ! "$SSH_AUTH_SOCK" ] || [ "$agent_run_state" = 2 ]; then
     agent_start
 fi
 
-test -f "$HOME/.ssh/*_rsa" && ssh-add ~/.ssh/*_rsa
-test -f "$HOME/.ssh/*_ed25519" && ssh-add ~/.ssh/*_ed25519
+# Note: This will raise print something that looks like an error if no `rsa` or `ed25519` keys are found.
+# It doesn't stop execution of this file, unless you set an error bit.
+ssh-add ~/.ssh/*_rsa
+ssh-add ~/.ssh/*_ed25519
 
 unset env
 
