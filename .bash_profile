@@ -14,7 +14,7 @@ parse_git_branch() {
 
 export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]$ "
 
-SSH_ENV="$HOME/.ssh/environment"
+# SSH_ENV="$HOME/.ssh/environment"
 
 # Commented out in favor of the below commands
 # I think this was the predecessor?

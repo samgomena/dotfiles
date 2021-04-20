@@ -1,3 +1,5 @@
+#! /usr/bash
+
 # Basic setup
 # TODO: add some command line options to make this more versatile
 
@@ -5,9 +7,9 @@
 # This should be used for all verification interactions with the user
 prompt() {
     echo "$1"
-    read -p "Do you want to continue? [y/n]" yes_or_no
+    read -rp "Do you want to continue? [y/n]" yes_or_no
 
-    if [ $yes_or_no = "n" ]; then
+    if [ "$yes_or_no" = "n" ]; then
         echo "NOTICE: Exiting"
         exit 0
     fi
@@ -20,9 +22,9 @@ git fetch
 git pull origin master
 
 if [ -d ~/.vim ]; then
-    prompt "NOTICE: Found pre-existing vim directory at ~/.vim"
+    status=$(prompt "NOTICE: Found pre-existing vim directory at ~/.vim")
 
-    if [ "$?" -eq "0" ]; then
+    if [ "$status" -eq "0" ]; then
         echo "NOTICE: Overwriting vim directory at ~/.vim"
         rm -rf ~/.vim
     fi
