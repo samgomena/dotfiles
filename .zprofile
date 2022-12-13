@@ -27,13 +27,11 @@ ssh-add ~/.ssh/*_rsa
 # ssh-add ~/.ssh/*_ed25519
 
 # Source credentials
-source ~/.creds.d/.artifactory
-source ~/.creds.d/.gh_token
-source ~/.creds.d/.vsphere
+source ~/.creds.d/.github
 
 unset env
 
-# Git alias stuff
+# Git stuff from @jsleeper; if it breaks call him
 alias ga='git add'
 alias gb='git branch'
 alias gbd='git branch -D'
@@ -55,13 +53,17 @@ alias gs='git status'
 
 # General aliasses
 alias repos='cd ~/Documents/repos'
-alias reload='exec "$SHELL"'
-alias cleanjq="jq -R 'fromjson? | select(type == \"object\")'"
+alias reload='omz reload'
 
 function cdl () { cd "$@" && ls; }
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 function rename () { for i in $1*; do mv "$i" "${i/$1/$2}"; done; }
 function rmia () { docker images | grep "$1" | tr -s ' ' | cut -d ' ' -f 2 | xargs -I {} docker rmi "$1":{} }
+function set_aws_credentials { 
+  export AWS_ACCESS_KEY_ID=$(cat ~/.aws/credentials | grep aws_access_key_id | awk '{ print $3 }')
+  export AWS_SECRET_ACCESS_KEY=$(cat ~/.aws/credentials | grep aws_secret_access_key | awk '{ print $3 }')
+}
+function unset_aws_credentials { unset AWS_ACCESS_KEY_ID; unset AWS_SECRET_ACCESS_KEY }
 
 # Add Visual Studio Code (code) to $PATH
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
