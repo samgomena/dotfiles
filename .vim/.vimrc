@@ -8,8 +8,6 @@ autocmd BufReadPost *
     \   exe "normal! g`\"" |
     \ endif
 
-"comment line
-"colorscheme morning
 colorscheme badwolf
 syntax enable
 syntax on
@@ -44,12 +42,19 @@ set noswapfile      " prevent swap files (recoverable changes)
 set laststatus=2    " lightline show status bar
 set encoding=utf-8  " YCM requires utf-8 (and probably other stuff too)"
 
+" Automatically install `plugged` if it doesn't already exist
+" See: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin('~/.vim/plugged')
 
 "Plugins
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'vim-scripts/tComment'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
