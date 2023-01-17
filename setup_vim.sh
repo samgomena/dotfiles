@@ -1,4 +1,4 @@
-#! /usr/bash
+#!/usr/bin/env bash
 
 # Basic setup
 # TODO: add some command line options to make this more versatile
