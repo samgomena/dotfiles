@@ -23,13 +23,15 @@ fi
 
 # Note: This will print something that looks like an error if no `rsa` or `ed25519` keys are found.
 # It doesn't stop execution of this file, unless you `set -e`.
-ssh-add ~/.ssh/*_rsa
-# ssh-add ~/.ssh/*_ed25519
-
-# Source credentials
-source ~/.creds.d/.github
+# ssh-add ~/.ssh/*_rsa
+ssh-add ~/.ssh/*_ed25519
 
 unset env
+
+
+# Source credentials
+source ~/.creds.d/.netspi
+source ~/.creds.d/.github
 
 # Git stuff from @jsleeper; if it breaks call him
 alias ga='git add'
@@ -50,44 +52,58 @@ alias glg='git log --oneline --graph --all --decorate'
 alias gp='git push --set-upstream origin HEAD'
 alias grh='git reset --hard @{u}'
 alias gs='git status'
+alias gr='git restore'
+alias gpl='git pull'
 
 # General aliasses
 alias repos='cd ~/Documents/repos'
 alias reload='omz reload'
 
+# Make uuidgen output lowercase, when on macOS
+if [[ `uname` == Darwin ]] then
+  alias uuidgen='uuidgen | tr A-F a-f'
+fi
+
 function cdl () { cd "$@" && ls; }
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 function rename () { for i in $1*; do mv "$i" "${i/$1/$2}"; done; }
 function rmia () { docker images | grep "$1" | tr -s ' ' | cut -d ' ' -f 2 | xargs -I {} docker rmi "$1":{} }
-function set_aws_credentials { 
-  export AWS_ACCESS_KEY_ID=$(cat ~/.aws/credentials | grep aws_access_key_id | awk '{ print $3 }')
-  export AWS_SECRET_ACCESS_KEY=$(cat ~/.aws/credentials | grep aws_secret_access_key | awk '{ print $3 }')
-}
-function unset_aws_credentials { unset AWS_ACCESS_KEY_ID; unset AWS_SECRET_ACCESS_KEY }
+
+for file in ~/.fns/*.sh; do
+  filename=$(basename $file)
+  echo "Function added: '${filename%.*}'"
+  source $file
+done
 
 # Add Visual Studio Code (code) to $PATH
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-# Load the fuck
-# Docs: https://github.com/nvbn/thefuck#installation
-# Removed on 8/12/21 because `thefuck` depends on a custom python install which overrides pyenv installs
-# eval $(thefuck --alias)
+# Setup homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-fi
+# No idea what these are used for; they're from netspi
+export AWS_BEDROCK_ROLE_ARN=arn:aws:iam::835505072120:role/CrossAccountChatbotBedrockAccess
+export AWS_BEDROCK_ACCESS_EXTERNAL_ID=9486346261
 
-# Created by `pipx` on 2021-04-20 17:21:48
+# Setup pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+# Created by `pipx` on 2024-08-16 16:59:20
+# export PATH="$PATH:/Users/sgomena/.local/bin"
+
+export GOBIN="$HOME/go/bin"
+export PATH="$PATH:$GOBIN"
+
+# Added by Toolbox App
+export PATH="$PATH:/Users/sgomena/Library/Application Support/JetBrains/Toolbox/scripts"
+
+# Created by `pipx` on 2024-08-16 16:59:20
 export PATH="$PATH:/Users/sgomena/.local/bin"
 
-# Set up kubectl alias and completions
-alias k=kubectl
-complete -F __start_kubectl k
-
-# alias trim_path='$PATH=$(python -c "from os import environ; \":\".join(set(environ.get("PATH").split(\":\")))"'
-
-alias cst=$(which container-structure-test)
+eval "$(starship init zsh)"
