@@ -106,4 +106,3 @@ export PATH="$PATH:/Users/sgomena/Library/Application Support/JetBrains/Toolbox/
 # Created by `pipx` on 2024-08-16 16:59:20
 export PATH="$PATH:/Users/sgomena/.local/bin"
 
-eval "$(starship init zsh)"
