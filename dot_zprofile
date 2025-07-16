@@ -58,6 +58,7 @@ alias gpl='git pull'
 # General aliasses
 alias repos='cd ~/Documents/repos'
 alias reload='omz reload'
+alias vim='nvim'
 
 # Make uuidgen output lowercase, when on macOS
 if [[ `uname` == Darwin ]] then
